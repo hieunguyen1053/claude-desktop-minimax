@@ -1,7 +1,11 @@
 services:
   gateway:
     image: openresty/openresty:alpine
+
+    restart: unless-stopped
+
     ports:
       - "4000:80"
+
     volumes:
       - ./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
